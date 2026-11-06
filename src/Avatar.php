@@ -83,7 +83,7 @@ class Avatar
      * @param array $config
      * @param Repository $cache
      */
-    public function __construct(array $config = [], Repository $cache = null)
+    public function __construct(array $config = [], ?Repository $cache = null)
     {
         $this->cache = $cache ?? new ArrayStore();
         $this->driver = $config['driver'] ?? 'gd';
@@ -244,7 +244,7 @@ class Avatar
         return $svg;
     }
 
-    public function toGravatar(array $param = null)
+    public function toGravatar(?array $param = null)
     {
         // Hash generation taken from https://en.gravatar.com/site/implement/images/php/
         $hash = md5(strtolower(trim($this->name)));
